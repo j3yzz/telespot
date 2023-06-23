@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"fmt"
+	"github.com/j3yzz/telespot/internal/config"
 	"github.com/spf13/cobra"
 	"log"
 	"os"
@@ -9,6 +11,10 @@ import (
 const ExitFailure = 1
 
 func Execute() {
+	cfg, _ := config.LoadConfig()
+
+	fmt.Println(cfg)
+
 	root := &cobra.Command{
 		Use:     "TeleSpot",
 		Short:   "Integrate Telegram Music with Spotify playlist.",
