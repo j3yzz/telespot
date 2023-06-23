@@ -1,8 +1,8 @@
 package cmd
 
 import (
-	"fmt"
 	"github.com/j3yzz/telespot/internal/config"
+	"github.com/j3yzz/telespot/internal/spotify"
 	"github.com/spf13/cobra"
 	"log"
 	"os"
@@ -13,7 +13,7 @@ const ExitFailure = 1
 func Execute() {
 	cfg, _ := config.LoadConfig()
 
-	fmt.Println(cfg)
+	spotify.NewClient(&cfg)
 
 	root := &cobra.Command{
 		Use:     "TeleSpot",
